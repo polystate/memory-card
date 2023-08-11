@@ -1,33 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import fetchImages from './fetch.js'
+import ImageContainer from './components/ImageContainer';
+import './App.css';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    async function fetchUnsplashImages(){
+      const fetchedImages = await fetchImages('animals', 8);
+      const initializedImages = fetchedImages.map(image => ({image, selected: false}))
+      setImages(initializedImages);
+    }
+    fetchUnsplashImages();
+  }, [])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <header>
+      <h1>Memory Game</h1>
+    </header>
+    <main>
+    <div className="score">
+        <h2>Current Score: <span className="score-val">{score}</span></h2>
+        <h2>Best Score: <span className="score-val">{bestScore}</span></h2>
+    </div>
+      <ImageContainer images={images} setImages={setImages} score={score} setScore={setScore} bestScore={bestScore} setBestScore={setBestScore}/>
+    </main>
+    <footer>
+      Created by polystate
+    </footer>
     </>
   )
 }

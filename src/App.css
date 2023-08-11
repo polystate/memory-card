@@ -1,42 +1,126 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root{
+  --main-margin: 2rem;
+  --border-rad: 10px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+body{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 0.1rem;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--main-margin);
+}
+
+.score{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: var(--main-margin);
+  border: 1px solid black;
+  padding: calc(var(--main-margin)/2);
+}
+
+.gallery{
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: var(--main-margin);
+  border: 1x solid black;
+}
+
+.image-container{
+  width: 20%;
+  max-width: 25%;
+  border-radius: var(--border-rad);
+  cursor: pointer;
+}
+
+.image{
+  max-height: 100px;
+  border-radius: var(--border-rad);
+  width: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 800px){
+  
+  body, html{
+    height: 100%;
+    overflow: hidden;
   }
-  to {
-    transform: rotate(360deg);
+  #root{
+    height: 100%;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  header{
+    max-height: 10%;
+    border: 1px solid black;
   }
-}
+  main{
+    max-height: 65%;
+    height: 100%;
+  }
+  .score{
+    border: 1px solid black;
+    font-size: 0.75rem;
+  }
+  .gallery{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: var(--main-margin);
+    height: 100%;
+  }
+  
+  .image-container{
+    height: 150px;
+    width: 20%;
+    max-width: 25%;
+    border-radius: var(--border-rad);
+    cursor: pointer;
+    overflow: hidden;
+  } 
+  .image{
+    max-height: 100px;
+    border-radius: var(--border-rad);
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+  }
 
-.card {
-  padding: 2em;
-}
+  figcaption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--main-margin)/6);
+  }
 
-.read-the-docs {
-  color: #888;
+  .caption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer{
+    border: 1px solid black;
+    height: 100%;
+    padding: var(--main-margin);
+    margin-top: var(--main-margin);
+
+  }
 }
