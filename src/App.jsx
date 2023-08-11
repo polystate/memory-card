@@ -32,7 +32,7 @@ function App() {
       <ImageContainer images={images} setImages={setImages} score={score} setScore={setScore} bestScore={bestScore} setBestScore={setBestScore}/>
     </main>
     <footer>
-      Created by polystate
+      <p>Created by polystate</p>
     </footer>
     </>
   )

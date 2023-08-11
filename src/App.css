@@ -1,6 +1,11 @@
 :root{
   --main-margin: 2rem;
   --border-rad: 10px;
+  --primary: #000F08;
+  --secondary: #F4FFF8;
+  --tertiary: #4D4847;
+  --alternative1: #1C3738;
+  --alternative2: #8BAAAD;
 }
 
 *,
@@ -14,6 +19,7 @@
 body{
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   letter-spacing: 0.1rem;
+  background: var(--secondary);
 }
 
 header{
@@ -69,6 +75,9 @@ header{
     max-height: 10%;
     border: 1px solid black;
   }
+  h1{
+    color: var(--alternative1);
+  }
   main{
     max-height: 65%;
     height: 100%;
@@ -85,6 +94,7 @@ header{
     gap: 1rem;
     padding: var(--main-margin);
     height: 100%;
+    background: linear-gradient(45deg, white, var(--secondary));
   }
   
   .image-container{
@@ -94,6 +104,7 @@ header{
     border-radius: var(--border-rad);
     cursor: pointer;
     overflow: hidden;
+    transition: transform 0.3s ease;
   } 
   .image{
     max-height: 100px;
@@ -101,6 +112,7 @@ header{
     width: 100%;
     height: 100px;
     object-fit: cover;
+    transform: scale(1.1);
   }
 
   figcaption{
@@ -118,9 +130,24 @@ header{
 
   footer{
     border: 1px solid black;
-    height: 100%;
-    padding: var(--main-margin);
-    margin-top: var(--main-margin);
+    height: 4rem;
+    /* padding: var(--main-margin); */
+    margin-top: calc(var(--main-margin)*2);
+  }
 
+  footer p{
+    padding: calc(var(--main-margin)/4);
+  }
+
+  .game-status{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(var(--main-margin)/2);
+  }
+
+  .status-text{
+    color: green;
   }
 }

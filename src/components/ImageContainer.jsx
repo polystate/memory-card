@@ -1,8 +1,12 @@
+import { useState } from 'react';
+
 function ImageContainer({images, setImages, score, setScore, bestScore, setBestScore }) {
+  const [gameStatus, setGameStatus] = useState("Ongoing game...");
 
   const imageHandler = (imageObj) =>{
     if(!imageObj.selected){
       setScore(score + 1);
+      (score === 7) ? setGameStatus("You win!") : setGameStatus("Ongoing game...");
       imageObj.selected = true;
       const shuffledImages = [...images];
       for(let i = shuffledImages.length - 1; i > 0; i--){
@@ -11,16 +15,23 @@ function ImageContainer({images, setImages, score, setScore, bestScore, setBestS
       }
       setImages(shuffledImages);
     } else {
-      console.log("Game Over");
       if(score > bestScore){
         setBestScore(score);
-        setScore(0);
       }
+      setGameStatus('Game over!');
+      const resetGame = images.map((image) => {
+        return { ...image, selected: false}
+      })
+      setScore(0);
+      setImages(resetGame);
     }
   }
 
   return (
     <>
+      <div className="game-status">
+      <span className="status-text" style={{color: gameStatus === 'Game over!' ? "red" : "green"}}>{gameStatus}</span>
+      </div>
       <div className="gallery">
         {images.map((imageObj, index) => (
           <figure key={index} className="image-container">
