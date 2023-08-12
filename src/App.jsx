@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import fetchImages from './fetch.js'
+import fetchImages from './fetch.js';
+import shuffleImages from './utils/utils.js';
 import ImageContainer from './components/ImageContainer';
 import './App.css';
 
@@ -14,7 +15,8 @@ function App() {
     async function fetchUnsplashImages(){
       const fetchedImages = await fetchImages('animals', 8);
       const initializedImages = fetchedImages.map(image => ({image, selected: false}))
-      setImages(initializedImages);
+      const shuffledImages = shuffleImages(initializedImages); 
+      setImages(shuffledImages);
     }
     fetchUnsplashImages();
   }, [])
@@ -33,6 +35,7 @@ function App() {
     </main>
     <footer>
       <p>Created by polystate</p>
+      <a href="https://github.com/polystate/memory-card" target="_blank">polystate@github</a>
     </footer>
     </>
   )

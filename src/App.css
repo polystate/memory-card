@@ -43,9 +43,10 @@ header{
   justify-content: space-between;
   flex-flow: row wrap;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   padding: var(--main-margin);
-  border: 1x solid black;
+  height: 100%;
+  background: linear-gradient(45deg, white, var(--secondary));
 }
 
 .image-container{
@@ -60,6 +61,44 @@ header{
   border-radius: var(--border-rad);
   width: 100%;
   object-fit: cover;
+}
+
+footer{
+  height: 4rem;
+  margin-top: calc(var(--main-margin)*2);
+}
+
+footer p, a{
+  padding: calc(var(--main-margin)/4);
+}
+
+a{
+  text-decoration: none;
+}
+
+.game-status{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: calc(var(--main-margin)/2);
+}
+
+@media only screen and (min-width: 801px){
+  .status-text{
+    font-size: 1.25rem;
+    padding: var(--main-margin);
+  }
+  footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+  footer p, a{
+    margin-bottom: var(--main-margin);
+    font-size: 1.35rem;
+  }
 }
 
 @media only screen and (max-width: 800px){
@@ -129,13 +168,11 @@ header{
   }
 
   footer{
-    border: 1px solid black;
     height: 4rem;
-    /* padding: var(--main-margin); */
     margin-top: calc(var(--main-margin)*2);
   }
 
-  footer p{
+  footer p, a{
     padding: calc(var(--main-margin)/4);
   }
 
@@ -150,4 +187,6 @@ header{
   .status-text{
     color: green;
   }
+
+ 
 }

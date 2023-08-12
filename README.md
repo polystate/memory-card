@@ -1,8 +1,27 @@
-# React + Vite
+Memory Card Game - Animals
+A simple memory card game developed using React.js where the goal is to click on animal images without clicking on the same image twice. This project is part of The Odin Project curriculum.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Click on an animal card to score points.
+The game ends when you click on the same image twice.
+Keep track of your current score and best score.
 
-Currently, two official plugins are available:
+How to Play
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Click on an animal card to earn points.
+2. Avoid clicking on the same animal image to keep your score.
+3. Your score increases with each successful click.
+4. Try to beat your best score!
+
+Technologies Used
+
+- React.js
+- CSS
+- HTML
+
+Credits
+Animal images provided by Unsplash.
+The Odin Project for project guidelines.
+
+License
+This project is licensed under the MIT License.
